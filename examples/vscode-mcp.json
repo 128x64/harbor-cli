@@ -1,0 +1,14 @@
+{
+  "inputs": [
+    { "id": "github_pat", "type": "promptString", "description": "GitHub personal access token", "password": true }
+  ],
+  "servers": {
+    "fetch": { "type": "stdio", "command": "uvx", "args": ["mcp-server-fetch"] },
+    "time":  { "type": "stdio", "command": "python", "args": ["-m", "mcp_server_time"] },
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": { "Authorization": "Bearer ${input:github_pat}" }
+    }
+  }
+}

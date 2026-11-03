@@ -1,0 +1,9 @@
+{
+  "model": "nvidia/nemotron-3-super-120b-a12b",
+  "vision_model": "meta/llama-3.2-90b-vision-instruct",
+  "verify": "",
+  "hooks": {
+    "PostToolUse": [ { "matcher": "write_file|edit_file|multi_edit", "command": "python -m black -q ." } ],
+    "Stop": []
+  }
+}
