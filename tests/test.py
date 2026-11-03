@@ -21,13 +21,13 @@ ROOT = HERE.parent
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(HERE))
 import mock_nim  # noqa: E402
-from nimcode import gitfinder, mcp, plugins, util  # noqa: E402
-from nimcode.core import Context, Registry, shell_is_dangerous  # noqa: E402
-from nimcode.tools import register_all  # noqa: E402
-from nimcode.tools import shell as shell_mod  # noqa: E402
-from nimcode.tools.fs import apply_edits  # noqa: E402
-from nimcode.tools.web import parse_bing_html  # noqa: E402
-from nimcode.ui import MDStream, cell_len, clip, make_diff, strip_ansi  # noqa: E402
+from harborcli import gitfinder, mcp, plugins, util  # noqa: E402
+from harborcli.core import Context, Registry, shell_is_dangerous  # noqa: E402
+from harborcli.tools import register_all  # noqa: E402
+from harborcli.tools import shell as shell_mod  # noqa: E402
+from harborcli.tools.fs import apply_edits  # noqa: E402
+from harborcli.tools.web import parse_bing_html  # noqa: E402
+from harborcli.ui import MDStream, cell_len, clip, make_diff, strip_ansi  # noqa: E402
 
 SRV = None
 PORT = 0
@@ -47,7 +47,7 @@ def tearDownModule():
 def run_cli(args, home, cwd, extra_env=None, stdin=subprocess.DEVNULL, timeout=90):
     env = dict(os.environ, NVIDIA_API_KEY="nvapi-test", HOME=home, USERPROFILE=home, PYTHONPATH=str(ROOT))
     env.update(extra_env or {})
-    return subprocess.run([sys.executable, "-m", "nimcode", "--base-url", "http://127.0.0.1:%d/v1" % PORT, "--cwd", cwd] + args,
+    return subprocess.run([sys.executable, "-m", "main", "--base-url", "http://127.0.0.1:%d/v1" % PORT, "--cwd", cwd] + args,
                           capture_output=True, text=True, env=env, timeout=timeout, stdin=stdin)
 
 
@@ -111,7 +111,7 @@ class EndToEnd(unittest.TestCase):
 
     def test_mcp_tool_through_agent(self):
         with tempfile.TemporaryDirectory() as d, tempfile.TemporaryDirectory() as h:
-            cfgdir = Path(h) / ".nimcode"
+            cfgdir = Path(h) / ".harborcli"
             cfgdir.mkdir()
             (cfgdir / "mcp.json").write_text(json.dumps({"mcpServers": {"mock": {
                 "command": sys.executable, "args": [str(HERE / "mock_mcp_stdio.py")]}}}))
@@ -127,7 +127,7 @@ class EndToEnd(unittest.TestCase):
 
     def test_project_extensions_require_trust(self):
         with tempfile.TemporaryDirectory() as d, tempfile.TemporaryDirectory() as h:
-            td = Path(d) / ".nimcode" / "tools"
+            td = Path(d) / ".harborcli" / "tools"
             td.mkdir(parents=True)
             (td / "evil.py").write_text("open(%r, 'w').write('pwned')\nTOOLS=[]\n" % str(Path(d) / "pwned.txt"))
             run_cli(["-p", "SCENARIO:plan", "--plan"], h, d)
@@ -329,7 +329,7 @@ class Misc(unittest.TestCase):
         self.assertLessEqual(cell_len(clip("x" * 100, 20)), 20)
 
     def test_permissions_prefix(self):
-        from nimcode.core import Permissions
+        from harborcli.core import Permissions
         p = Permissions()
         self.assertEqual(p.command_prefix("npm test --silent"), "npm test")
         self.assertEqual(p.command_prefix("ls -la"), "ls")
@@ -442,7 +442,7 @@ class Pty:
         fcntl.ioctl(slave, termios.TIOCSWINSZ, struct.pack("HHHH", 40, 100, 0, 0))
         env = dict(os.environ, NVIDIA_API_KEY="nvapi-test", HOME=home, PYTHONPATH=str(ROOT), TERM="xterm-256color")
         env.pop("NO_COLOR", None)
-        self.p = subprocess.Popen([sys.executable, "-m", "nimcode", "--base-url", "http://127.0.0.1:%d/v1" % PORT, "--cwd", cwd] + args,
+        self.p = subprocess.Popen([sys.executable, "-m", "main", "--base-url", "http://127.0.0.1:%d/v1" % PORT, "--cwd", cwd] + args,
                                   stdin=slave, stdout=slave, stderr=slave, env=env, cwd=cwd, close_fds=True, start_new_session=True)
         os.close(slave)
         self.buf = ""
@@ -487,7 +487,7 @@ class InteractiveUI(unittest.TestCase):
     def test_full_interactive_session(self):
         t = self.t
         out = t.read_until("? for shortcuts")
-        self.assertIn("Welcome to NimCode", t.buf)
+        self.assertIn("Welcome to Harbor Agentic CLI", t.buf)
         self.assertIn("╭", t.buf)
         # editing keys: type, move, delete, then clear with ctrl-u
         t.send("helo")
@@ -564,15 +564,15 @@ class InteractiveUI(unittest.TestCase):
 import textwrap  # noqa: E402
 import queue  # noqa: E402
 from http.server import ThreadingHTTPServer  # noqa: E402
-from nimcode import backends, textproto  # noqa: E402
-from nimcode.client import NIMError  # noqa: E402
+from harborcli import backends, textproto  # noqa: E402
+from harborcli.client import NIMError  # noqa: E402
 
 
 def run_main(args, main_dir, home, cwd, extra_env=None, timeout=90):
-    """Run nimcode with an explicit main_dir (where model.gguf / llama-server live)."""
+    """Run harborcli with an explicit main_dir (where model.gguf / llama-server live)."""
     env = dict(os.environ, NVIDIA_API_KEY="nvapi-test", HOME=home, USERPROFILE=home, PYTHONPATH=str(ROOT))
     env.update(extra_env or {})
-    code = "import sys; sys.path.insert(0, %r); from nimcode.cli import main; sys.exit(main(%r, main_dir=%r))" % (str(ROOT), args + ["--cwd", cwd], str(main_dir))
+    code = "import sys; sys.path.insert(0, %r); from harborcli.cli import main; sys.exit(main(%r, main_dir=%r))" % (str(ROOT), args + ["--cwd", cwd], str(main_dir))
     return subprocess.run([sys.executable, "-c", code], capture_output=True, text=True, env=env, timeout=timeout, stdin=subprocess.DEVNULL)
 
 
@@ -700,8 +700,8 @@ class LocalBackends(unittest.TestCase):
             self.assertIn("llama-server", r.stderr)
 
     def test_root_script_runs(self):
-        r = subprocess.run([sys.executable, str(ROOT / "nimcode.py"), "--version"], capture_output=True, text=True)
-        self.assertIn("nimcode 3.0.0", r.stdout)
+        r = subprocess.run([sys.executable, str(ROOT / "main.py"), "--version"], capture_output=True, text=True)
+        self.assertIn("HarborCLI 3.0.0", r.stdout)
 
 
 class Agentic(unittest.TestCase):
@@ -736,7 +736,7 @@ class Agentic(unittest.TestCase):
 
     def test_read_only_tools_run_in_parallel(self):
         with tempfile.TemporaryDirectory() as d, tempfile.TemporaryDirectory() as h:
-            td = Path(h) / ".nimcode" / "tools"
+            td = Path(h) / ".harborcli" / "tools"
             td.mkdir(parents=True)
             (td / "slow.py").write_text(textwrap.dedent('''
                 import time
@@ -763,8 +763,8 @@ class Agentic(unittest.TestCase):
 
 class AgentUnits(unittest.TestCase):
     def make_agent(self, cfg=None):
-        from nimcode.agent import Agent
-        from nimcode.core import Permissions
+        from harborcli.agent import Agent
+        from harborcli.core import Permissions
 
         class C:
             base_url, api_key, on_retry = "x", "k", None
@@ -809,7 +809,7 @@ class AgentUnits(unittest.TestCase):
         names = {t.name for t in agent.active_tools()}
         self.assertNotIn("finish", names)
         self.assertIn("delegate", names)
-        from nimcode.agent import Agent
+        from harborcli.agent import Agent
         sub = Agent(ctx, agent.registry, agent.perms, "m", sub=True)
         sn = {t.name for t in sub.active_tools()}
         self.assertNotIn("write_file", sn)
