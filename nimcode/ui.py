@@ -28,8 +28,15 @@ else:
     G = dict(dot="●", elbow="⎿", spin=["·", "✢", "✳", "✶", "✻", "✽"], tl="╭", tr="╮", bl="╰", br="╯", h="─", v="│",
              arrow="❯", open="☐", done="☒", prog="☐", bullet="•", star="✻", up="↑", down="↓", plan="⏸", accept="⏵⏵")
 
-VERBS = ["Thinking", "Pondering", "Cogitating", "Computing", "Working", "Analyzing", "Ruminating", "Reasoning",
-         "Brewing", "Synthesizing", "Noodling", "Churning", "Percolating", "Mulling"]
+VERBS = ["Thinking", "Pondering", "Cogitating", "Computing", "Working", "Analyzing", "Ruminating", "Reasoning", "Brewing", "Synthesizing", "Noodling", "Churning", "Percolating", "Mulling", "Cooking", 
+         "Meditating", "Contemplating", "Deliberating", "Reflecting", "Speculating", "Brainstorming", "Processing", "Calculating", "Evaluating", "Examining", "Scrutinizing", "Dissecting", "Investigating", 
+         "Exploring", "Probing", "Sifting", "Weighing", "Assessing", "Reviewing", "Studying", "Sleuthing", "Digesting", "Filtering", "Sorting", "Structuring", "Mapping", "Formulating", "Drafting", 
+         "Deconstructing", "Assembling", "Compiling", "Aggregating", "Condensing", "Refining", "Polishing", "Tweaking", "Modifying", "Adapting", "Simulating", "Modeling", "Testing", "Verifying", 
+         "Validating", "Checking", "Auditing", "Tracking", "Monitoring", "Scanning", "Parsing", "Indexing", "Cataloging", "Decoding", "Decrypting", "Translating", "Interpreting", "Clarifying", 
+         "Illuminating", "Unraveling", "Untangling", "Solving", "Resolving", "Figuring", "Determining", "Discovering", "Uncovering", "Detecting", "Diagnosing", "Troubleshooting", "Debugging", 
+         "Fixing", "Patching", "Upgrading", "Optimizing", "Maximizing", "Enhancing", "Boosting", "Accelerating", "Streamlining", "Generating", "Creating", "Crafting", "Designing", "Architecting", 
+         "Plotting", "Scheming", "Marinating", "Gesticulating", ]
+
 ANSI_RE = re.compile(r"\x1b\[[0-9;?]*[ -/]*[@-~]")
 
 
