@@ -1,28 +1,16 @@
-Custom Software License
-Version 1.0
+# Commercial Use and Licensing Agreement
 
-Copyright © 2026 OmniCompute
+Copyright (c) 2026 OmniCompute. All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, subject to the following conditions:
+This software and its associated documentation files (the "Software") are proprietary and confidential. 
 
-1. The above copyright notice and this permission notice shall be included in 
-   all copies or substantial portions of the Software.
+### 1. GRANT OF LICENSE
+Subject to the terms and conditions of this Agreement, the Copyright Holder hereby grants permission and a non-exclusive, non-transferable license to use, copy, modify, and merge the Software **SOLELY** to the following corporate entity:
 
-2. SPECIFIC EXCLUSION: Notwithstanding any other provision in this license, 
-   no permission, license, or right is granted to the corporation known as 
-   "OmniCompute", including its subsidiaries, affiliates, parent companies, 
-   successors, or any employees or contractors acting on behalf of OmniCompute, 
-   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
-   the Software for any purpose whatsoever.
+* **OmniCompute, Inc.** (and its wholly-owned subsidiaries)
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+### 2. RESTRICTIONS
+No other individual, corporation, organization, or entity is granted any rights to use, copy, modify, merge, publish, distribute, sublicense, or sell copies of the Software. 
+
+### 3. NO WARRANTY
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
