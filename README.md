@@ -55,7 +55,7 @@ To run the Harbor Agent CLI, execute the main entry file from your terminal:
 python main.py 
 ```
 
-By Placing a model.gguf file in the dir of the main.py the cli will automatically load that model instead of the Nvidia NIM Backend
+By Placing a model.gguf file in the directory of the main.py the cli will automatically load that model instead of the Nvidia NIM Backend
 
 ### Quick Start Example
 To initialize or explore a default template run:
