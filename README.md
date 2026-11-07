@@ -34,13 +34,12 @@ Ensure you have explicit permission
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com
+   git clone https://github.com/128x64/harbor-cli.git
    cd harbor-cli
    
    ```
 
 3. **Install dependencies:**
-   *(If a `requirements.txt` file is present)*
    ```bash
    pip install -r requirements.txt
    ```
@@ -67,8 +66,6 @@ python main.py
 
 ## Tests
 
-Validate your local setup using the internal test suite: (You must get permission from the managers first before doing anything with this code
-
 ```bash
 pytest tests/
 ```
@@ -77,5 +74,4 @@ pytest tests/
 
 ## License
 
-Distributed under the terms of the project's license. See [`LICENSE.md`](LICENSE.md) for more details.
-
+Protected under the terms of the project's license. See [`LICENSE.md`](LICENSE.md) for more details.
