@@ -1,6 +1,6 @@
 # Proprietary Commercial Use and Licensing Agreement
 
-Copyright (c) 2026 OmniCompute. All rights reserved.
+Copyright (c) 2026 128x64. All rights reserved.
 
 This repository, including all software, source code, assets, and associated documentation files (collectively, the "Software"), is proprietary, strictly confidential, and the exclusive property of OmniCompute. 
 
