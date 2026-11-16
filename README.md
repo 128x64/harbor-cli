@@ -3,7 +3,7 @@
 [![License](https://shields.io)](LICENSE.md)
 [![Python Version](https://shields.io)](main.py)
 
-**harbor-cli** is the official command-line interface for managing and interacting with the Harbor Agent infrastructure. Built entirely in Python, it provides developers and operators with an efficient, scriptable toolset to deploy, control, and monitor AI agents seamlessly.
+**harbor-cli** is the official command-line interface for managing and interacting with the 128x64 Agent infrastructure. Built entirely in Python, it provides developers and operators with an efficient, scriptable toolset to deploy, control, and monitor AI agents seamlessly.
 
 ---
 
