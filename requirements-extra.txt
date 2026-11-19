@@ -1,0 +1,3 @@
+# Heavier optional extras (each may lack wheels for the newest Python; safe to skip)
+playwright>=1.44            # browser_* tools - afterwards run: playwright install chromium
+rapidocr-onnxruntime>=1.3   # local OCR (ocr_image tool)

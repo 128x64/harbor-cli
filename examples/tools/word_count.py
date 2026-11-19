@@ -1,4 +1,4 @@
-"""Custom tool example: copy to ~/.nimcode/tools/ (global) or <project>/.nimcode/tools/ (asks for trust)."""
+"""Custom tool example: copy to ~/.harbor/tools/ (global) or <project>/.harbor/tools/ (asks for trust)."""
 from pathlib import Path
 
 

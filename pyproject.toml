@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "harbor-cli"
+version = "3.4.0"
+description = "Harbor CLI - an agentic coding CLI for any model: NVIDIA NIM, Ollama, local GGUF, OpenAI-compatible APIs"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/128x64/harbor-cli"
+Issues = "https://github.com/128x64/harbor-cli/issues"
+Changelog = "https://github.com/128x64/harbor-cli/blob/main/CHANGELOG.md"
+
+[project.scripts]
+harbor = "harbor.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["harbor*"]

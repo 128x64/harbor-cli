@@ -4,6 +4,10 @@ class Llama:
         self.kw = kw
 
     def create_chat_completion(self, messages, max_tokens=None, temperature=None, stream=False):
+        import os
+        if os.environ.get("FAKE_LLAMA_LOG"):
+            with open(os.environ["FAKE_LLAMA_LOG"], "a") as fh:
+                fh.write("max_tokens=%s\n" % max_tokens)
         last = messages[-1]["content"]
         if "<tool_response>" in last:
             parts = ["All done ", "via local."]

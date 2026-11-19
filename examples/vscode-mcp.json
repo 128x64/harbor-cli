@@ -1,10 +1,13 @@
 {
+  // Same format VS Code writes (.vscode/mcp.json or your user mcp.json). Harbor CLI reads these files automatically.
   "inputs": [
     { "id": "github_pat", "type": "promptString", "description": "GitHub personal access token", "password": true }
   ],
   "servers": {
+    // Python servers (no Node needed): pip install mcp-server-fetch mcp-server-time
     "fetch": { "type": "stdio", "command": "uvx", "args": ["mcp-server-fetch"] },
     "time":  { "type": "stdio", "command": "python", "args": ["-m", "mcp_server_time"] },
+    // Remote server with a token header (OAuth login flows are not supported)
     "github": {
       "type": "http",
       "url": "https://api.githubcopilot.com/mcp/",

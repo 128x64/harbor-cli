@@ -1,0 +1,13 @@
+# Optional libraries - everything degrades gracefully if one is missing (run `harbor --doctor` to see what is active)
+pygments>=2.15            # syntax highlighting of code blocks
+pypdf>=4.0                # read PDFs
+python-docx>=1.1          # read Word documents
+openpyxl>=3.1             # read Excel workbooks
+python-pptx>=0.6.23       # read PowerPoint decks
+beautifulsoup4>=4.12      # HTML parsing (web_fetch, Bing results)
+markdownify>=0.12         # HTML -> markdown for web_fetch
+psutil>=5.9               # system_info / system_processes
+pyperclip>=1.8            # clipboard tools
+pillow>=10.0              # screenshots + image downscaling for vision models
+uv>=0.4                   # provides uvx so Python MCP servers from VS Code run without Node
+dulwich>=0.21             # pure-Python git fallback if no git executable can be started

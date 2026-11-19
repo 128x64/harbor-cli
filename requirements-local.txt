@@ -1,0 +1,4 @@
+# Only needed to run model.gguf IN-PROCESS. Skip this if you use llama-server.exe from llama.cpp's releases instead.
+# Prebuilt CPU wheels (no compiler needed):
+--extra-index-url https://abetlen.github.io/llama-cpp-python/whl/cpu
+llama-cpp-python>=0.3
