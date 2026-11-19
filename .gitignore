@@ -1,4 +1,3 @@
-# ---- Python -------------------------------------------------------------
 __pycache__/
 *.py[cod]
 *.egg-info/
@@ -9,16 +8,13 @@ dist/
 .coverage
 htmlcov/
 
-# ---- Virtual environments ----------------------------------------------
 .venv/
 venv/
 env/
 
-# ---- Harbor CLI local data (settings, sessions, backups: never commit) ---
 .harbor/
 .nimcode/
 
-# ---- Models and inference engines (large, supplied by the user) ----------
 *.gguf
 *.safetensors
 llama-server
@@ -26,20 +22,17 @@ llama-server.exe
 /llama.cpp/
 /bin/
 
-# ---- Secrets -------------------------------------------------------------
 .env
 .env.*
 !.env.example
 *.pem
 *.key
 
-# ---- Editors / OS --------------------------------------------------------
 .idea/
 .vscode/
 .DS_Store
 Thumbs.db
 
-# ---- Archives, logs, updater leftovers ------------------------------------
 *.zip
 *.log
 *.harbor-new
